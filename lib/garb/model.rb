@@ -51,9 +51,7 @@ module Garb
       options[:limit] = 10_000 # maximum allowed
       results = nil
       while ((rs = results(profile, options)) && !rs.empty?)
-        results \
-          ? results.concat(rs.to_a)
-          : results = rs
+        results  ? results.concat(rs.to_a) : results = rs
         options[:offset] = results.size + 1
         
         break if limit and results.size >= limit
